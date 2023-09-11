@@ -3,9 +3,13 @@
 1. Completed the implementation of get_column() in my_utils.py as following:
    
    i.  Let the function open the file named file_name and operate it line by line.
+
    ii. Split each line into an array.
+
    iii. Check a condition, if the value in the query_column position of the array matches the value stored in the query_value variable, the function will add the value in the result_column position to a result array.
+
    iv. Return the result array storing the column values.
+
    v. The function uses a named argument only for the result_column variable (defult = 1).
 
 2. Updated print_fires.py to proceed the get_column() function from my_utils.py and print out the number of fires in any defined country.
