@@ -1,9 +1,11 @@
 def get_column(file_name, query_column, query_value, result_column=1):
-    result = list()
     with open(file_name, 'r') as f:
-        for line in f:
+        for ind, line in enumerate(f):
             array = line.rstrip().split(',')
+            if ind == 0:
+                collection = [list(array)]
             query = array[query_column-1]
             if query == query_value:
-                result.append(float(array[result_column-1]))
+                collection.append(array)
+        result = [row[result_column-1] for row in collection]
     return result
