@@ -4,9 +4,15 @@ import argparse
 
 
 def get_args():
+    """
+    Parse command-line arguments for the script.
+
+    Returns:
+    - argparse.Namespace: An object containing the parsed command-line arguments.
+    """
     parser = argparse.ArgumentParser(
-        description = 'Print a number of fires in a specified country',
-        prog = 'print_fires')
+        description='Print a number of fires in a specified country',
+        prog='print_fires')
     parser.add_argument('--file_name', type=str,
                         help='Name of the file', required=True)
     parser.add_argument('--country', type=str,
@@ -20,13 +26,15 @@ def get_args():
 
 
 def main():
+    """
+    Main function of the script. Extracts fire data and prints the number of fires in a specified country.
+    """
     args = get_args()
-    args.country_column = 1
-    fires = my_utils.get_column(args.file_name, args.country_column, args.country, result_column=args.fires_column)
-    num_fires = len([val for val in fires[1:] if val != 0])
+    fires = my_utils.get_column(args.file_name, args.country_column,
+                                args.country, result_column=args.fires_column)
+    num_fires = len([val for val in fires[1:] if float(val) != 0])
     print(f"A number of fires from {fires[0]} in {args.country} is {num_fires}")
 
 
 if __name__ == '__main__':
     main()
-    
