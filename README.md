@@ -17,7 +17,7 @@
 2. Updated print_fires.py to proceed the get_column() function from my_utils.py and print out the number of fire events occurred in any defined country from 1990-2020.
 
 3. Created run.sh that runs print_fires.py based on the specified file name, the name of country and the column number of fire events in the script. With all required parameters assigned, the run prints out a number of fire events in a specific country as shown below.
-   '''shell
+   '''console
    $ python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
    A number of fires from Savanna fires in United States of America is 31
    $ python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 24
