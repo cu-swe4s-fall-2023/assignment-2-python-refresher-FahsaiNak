@@ -19,6 +19,8 @@
 3. Created run.sh that runs print_fires.py based on the specified file name, the name of country and the column number of fire events in the script. With all required parameters assigned, the run prints out a number of fire events in a specific country as shown below.
    ```console
    $ python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
-   # An example of output
+   ```
+   An example of output
+   ```console
    A number of fires from Savanna fires in United States of America is 31
    ```
