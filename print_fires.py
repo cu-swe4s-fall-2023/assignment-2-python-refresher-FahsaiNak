@@ -1,6 +1,5 @@
 import my_utils
 import argparse
-import sys
 
 
 def get_args():
