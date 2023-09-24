@@ -1,5 +1,4 @@
 import my_utils
-from collections import namedtuple
 import argparse
 import sys
 
