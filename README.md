@@ -6,8 +6,9 @@
 
 ### Prerequisites
 
-Prerequisite libraries are listed
-* argparse
+* Install Conda [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
+
+* Install argparse
   ```sh
   pip install argparse
   ```
@@ -30,10 +31,14 @@ Prerequisite libraries are listed
    A number of fires from Savanna fires in United States of America is 31
    ```
 
-### Example
+### Usage Example
+
+The file named run.sh includes three examples of running print_fires.py, one that works and two that give errors as shown below
+
    ```sh
    ./run.sh
    ```
+    
    ```console
     Program is running
     A number of fires from Savanna fires in United States of America is 31
