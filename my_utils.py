@@ -39,7 +39,7 @@ def get_column(file_name, query_column, query_value, result_column=1):
     except ValueError:
         print('Some values in the column', result_column, ':',
               collection[0][result_column-1], 'of', query_value,
-              'are not numbers, potentailly no value')
+              'are not numbers, potentially no value')
         return None
     result.append(collection[0][result_column-1])
     return result
