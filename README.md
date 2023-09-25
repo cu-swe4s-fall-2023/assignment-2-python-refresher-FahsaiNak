@@ -51,6 +51,6 @@ The file named run.sh includes three examples of running print_fires.py, one tha
     Program is running
     A number of fires from Savanna fires in United States of America is 31
     Could not find Agrofood_o2_emission.csv
-    Some values in the column 11 : Net Forest conversion of Bermuda are not numbers, potentailly no value
+    Some values in the column 11 : Net Forest conversion of Bermuda are not numbers, potentially no value
     Done
    ```
