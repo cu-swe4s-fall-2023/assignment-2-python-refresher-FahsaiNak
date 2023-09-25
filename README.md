@@ -1,6 +1,47 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/oQi7O4AA)
-# Summary of changes
-0. Added the data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7)
+# Assignment 3: Best Practices
+
+## About the Project
+
+## Getting started
+
+### Prerequisites
+
+Prerequisite libraries are listed
+* argparse
+  ```sh
+  pip install argparse
+  ```
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-FahsaiNak.git
+   ```
+
+2. Get a data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7) and place in the root directory of the repository
+
+3. Excute print_fires.py to prints out a number of fire events in a specified country
+   ```sh
+   python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
+   ```
+   An example of output
+   ```console
+   A number of fires from Savanna fires in United States of America is 31
+   ```
+
+### Example
+   ```sh
+   ./run.sh
+   ```
+   ```console
+    Program is running
+    A number of fires from Savanna fires in United States of America is 31
+    Could not find Agrofood_o2_emission.csv
+    Some values in the column 11 : Net Forest conversion of Bermuda are not numbers, potentailly no value
+    Done
+   ```
+
 
 1. Completed the implementation of get_column() in my_utils.py as following:
    
@@ -17,8 +58,8 @@
 2. Updated print_fires.py to proceed the get_column() function from my_utils.py and print out the number of fire events occurred in any defined country from 1990-2020.
 
 3. Created run.sh that runs print_fires.py based on the specified file name, the name of country and the column number of fire events in the script. With all required parameters assigned, the run prints out a number of fire events in a specific country as shown below.
-   ```console
-   $ python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
+   ```sh
+   python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
    ```
    An example of output
    ```console
