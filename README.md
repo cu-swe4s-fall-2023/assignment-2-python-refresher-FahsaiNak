@@ -2,11 +2,13 @@
 
 ## About the Project
 
+A program that prints out the number of fire events occurred in any defined country from 1990-2020.
+
 ## Getting started
 
 ### Prerequisites
 
-* Install Conda [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
+* Install [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
 * Install argparse
   ```sh
@@ -22,7 +24,11 @@
 
 2. Get a data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7) and place in the root directory of the repository
 
-3. Excute print_fires.py to prints out a number of fire events in a specified country
+3. Excute print_fires.py to prints out a number of fire events in a specified country. The program requires parameters as following:
+   - The specified file name (Agrofood_co2_emission.csv)
+   - The name of country
+   - The column number of fire
+   Example:
    ```sh
    python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
    ```
@@ -33,7 +39,7 @@
 
 ### Usage Example
 
-The file named run.sh includes three examples of running print_fires.py, one that works and two that give errors as shown below
+The file named run.sh includes three examples of running print_fires.py, one that works and two that give errors as shown below:
 
    ```sh
    ./run.sh
