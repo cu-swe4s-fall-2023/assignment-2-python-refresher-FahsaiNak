@@ -1,5 +1,6 @@
 import my_utils
 import argparse
+import sys
 
 
 def get_args():
@@ -31,9 +32,10 @@ def main():
     args = get_args()
     fires = my_utils.get_column(args.file_name, args.country_column,
                                 args.country, result_column=args.fires_column)
-    if fires is not None:
-        num_fires = len([val for val in fires[:-1] if val != 0])
-        print(f"A number of fires from {fires[-1]} in {args.country} is {num_fires}")
+    if fires is None:
+        sys.exit(1)
+    num_fires = len([val for val in fires[:-1] if val != 0])
+    print(f"A number of fires from {fires[-1]} in {args.country} is {num_fires}")
 
 
 if __name__ == '__main__':
