@@ -10,6 +10,8 @@ A program that prints out the number of fire events occurred in any defined coun
 
 * Install [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
+* Install python 3.x
+
 * Install argparse
   ```sh
   pip install argparse
