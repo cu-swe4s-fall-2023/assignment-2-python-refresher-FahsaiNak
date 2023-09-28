@@ -15,13 +15,31 @@ def get_column(file_name, query_column, query_value, result_column=1):
     - The function assumes that the CSV file has a header row.
     - The column indices are 1-based, where 1 corresponds to the first column.
     """
-    with open(file_name, 'r') as f:
-        for ind, line in enumerate(f):
-            array = line.rstrip().split(',')
-            if ind == 0:
-                collection = [list(array)]
-            query = array[query_column-1]
-            if query == query_value:
-                collection.append(array)
-        result = [row[result_column-1] for row in collection]
+    # If something wrong in opening the file, the function returns None
+    try:
+        f = open(file_name, 'r')
+    except FileNotFoundError:
+        print('Could not find', file_name)
+        return None
+    except PermissionError:
+        print('Could not open', file_name)
+        return None
+    for ind, line in enumerate(f):
+        array = line.rstrip().split(',')
+        if ind == 0:
+            collection = [list(array)]
+        query = array[query_column-1]
+        if query == query_value:
+            collection.append(array)
+    f.close()
+    # If the values in a column are not all numbers, the function returns None
+    try:
+        result = [*map(lambda x: int(float(x)),
+                       [row[result_column-1] for row in collection[1:]])]
+    except ValueError:
+        print('Some values in the column', result_column, ':',
+              collection[0][result_column-1], 'of', query_value,
+              'are not numbers, potentially no value')
+        return None
+    result.append(collection[0][result_column-1])
     return result

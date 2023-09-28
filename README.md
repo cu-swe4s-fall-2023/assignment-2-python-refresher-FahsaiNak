@@ -1,26 +1,58 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/oQi7O4AA)
-# Summary of changes
-0. Added the data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7)
+# Assignment 3: Best Practices
 
-1. Completed the implementation of get_column() in my_utils.py as following:
-   
-   i.  Let the function open the file named file_name and operate it line by line.
+## About the Project
 
-   ii. Split each line into an array.
+A program that prints out the number of fire events occurred in any defined country from 1990-2020.
 
-   iii. Check a condition, if the value in the query_column position of the array matches the value stored in the query_value variable, the function will add the value in the result_column position to a result array.
+## Getting started
 
-   iv. Return the result array storing the column values with the column headers.
+### Prerequisites
 
-   v. The function uses a named argument only for the result_column variable (default = 1).
+* Install [Conda](https://conda.io/projects/conda/en/latest/user-guide/install/index.html)
 
-2. Updated print_fires.py to proceed the get_column() function from my_utils.py and print out the number of fire events occurred in any defined country from 1990-2020.
+* Install python 3.x
 
-3. Created run.sh that runs print_fires.py based on the specified file name, the name of country and the column number of fire events in the script. With all required parameters assigned, the run prints out a number of fire events in a specific country as shown below.
-   ```console
-   $ python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
+* Install argparse
+  ```sh
+  pip install argparse
+  ```
+
+### Installation
+
+1. Clone the repository
+   ```sh
+   git clone https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-FahsaiNak.git
    ```
-   An example of output
+
+2. Get a data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7) and place in the root directory of the repository
+
+3. Excute print_fires.py to prints out a number of fire events in a specified country. The program requires parameters as following:
+   - The specified CSV file name (--file_name)
+   - The column number of the fire event (--fires_column)
+   - The name of the country (--country)
+   - (Optional) The column number of the country (--country_column)
+   
+   Running command example:
+   ```sh
+   python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 3
+   ```
+   Output example:
    ```console
    A number of fires from Savanna fires in United States of America is 31
+   ```
+
+### Usage Example
+
+The file named run.sh includes three examples of running print_fires.py, one that works and two that give errors as shown below:
+
+   ```sh
+   ./run.sh
+   ```
+    
+   ```console
+    Program is running
+    A number of fires from Savanna fires in United States of America is 31
+    Could not find Agrofood_o2_emission.csv
+    Some values in the column 11 : Net Forest conversion of Bermuda are not numbers, potentially no value
+    Done
    ```
