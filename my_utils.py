@@ -43,3 +43,26 @@ def get_column(file_name, query_column, query_value, result_column=1):
         return None
     result.append(collection[0][result_column-1])
     return result
+
+
+def calculate_mean(lst):
+    return sum(lst)/len(lst)
+
+
+def calculate_median(lst):
+    n = len(lst)
+    lst.sort()
+    if n % 2 == 0:
+        median1 = lst[n//2]
+        median2 = lst[n//2 - 1]
+        median = (median1 + median2)/2
+    else:
+        med = lst[n//2]
+    return med
+
+
+def calculate_std_dev(lst):
+    mean = sum(lst) / len(lst)
+    variance = sum((xi - mean) ** 2 for xi in lst) / len(lst)
+    std_dev = variance ** 0.5
+    return std_dev
