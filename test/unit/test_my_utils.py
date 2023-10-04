@@ -1,13 +1,13 @@
-import sys
-
-sys.path.insert(0, '../../src')
-
 # Import necessary modules and libraries
-import my_utils
+import sys
 import unittest
 import random
 import os
 import numpy as np
+
+sys.path.insert(0, '../../src')
+import my_utils
+
 
 # Create a test class for testing calculation functions
 class TestCalc(unittest.TestCase):
@@ -39,6 +39,7 @@ class TestCalc(unittest.TestCase):
         self.assertEqual(std, self.direct_std)  # Check if the calculated std_dev matches the expected std_dev
         self.assertRaises(ZeroDivisionError, my_utils.calculate_std_dev, list())  # Test with an empty list
         self.assertRaises(TypeError, my_utils.calculate_median, None)  # Test with None as input
+
 
 # Create a test class for testing get_column function
 class TestGetCol(unittest.TestCase):
@@ -78,6 +79,7 @@ class TestGetCol(unittest.TestCase):
         lst = my_utils.get_column(self.test_file_name, self.query_column,
                                   self.query_value, result_column=self.result_column)
         self.assertEqual(lst, self.lst_column)  # Check if the extracted column matches the expected result
+
 
 if __name__ == '__main__':
     unittest.main()
