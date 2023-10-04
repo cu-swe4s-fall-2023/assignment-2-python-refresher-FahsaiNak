@@ -1,3 +1,7 @@
+import sys
+
+sys.path.insert(0,'src')
+
 import my_utils
 import argparse
 import sys
@@ -29,13 +33,15 @@ def get_args():
 
 def main():
     """
-    Main function of the script. Extracts fire data and prints the number of fires in a specified country.
+    Main function of the script. Extracts fire data and prints the value from assigned operation of fires in a specified country.
     """
     args = get_args()
     fires = my_utils.get_column(args.file_name, args.country_column,
                                 args.country, result_column=args.fires_column)
     if fires is None:
         sys.exit(1)
+    elif len(fires) == 0:
+        sys.exit(2)
     else:
         if args.operation == None:
             val = fires
