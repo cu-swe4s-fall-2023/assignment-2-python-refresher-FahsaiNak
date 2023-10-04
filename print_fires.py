@@ -1,10 +1,8 @@
-import sys
-
-sys.path.insert(0,'src')
-
-import my_utils
 import argparse
 import sys
+
+sys.path.insert(0, 'src')
+import my_utils
 
 
 def get_args():
@@ -26,7 +24,7 @@ def get_args():
     parser.add_argument('--country_column', type=int, default=1,
                         help='The column number of the country name')
     parser.add_argument('--operation', type=str, default=None,
-                        help='The operation to perform: mean, median, std')    
+                        help='The operation to perform: mean, median, std')
     args = parser.parse_args()
     return args
 
@@ -43,7 +41,7 @@ def main():
     elif len(fires) == 0:
         sys.exit(2)
     else:
-        if args.operation == None:
+        if args.operation is None:
             val = fires
         elif args.operation == "mean":
             val = my_utils.calculate_mean(fires)
