@@ -52,7 +52,7 @@ def main():
         else:
             print("The assigned --operation is not matched; either mean, median or std is provided.")
             sys.exit(1)
-    print("Operation:", args.operation, val)
+    print(args.country, "operated with", args.operation, val)
 
 
 if __name__ == '__main__':
