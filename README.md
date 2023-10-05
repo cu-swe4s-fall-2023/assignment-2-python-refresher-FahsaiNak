@@ -22,6 +22,8 @@ A program that prints out the operated number of fire events occurred in any def
   pip install sys
   ```
 
+* To run unit/functional test: unittest, random, os and numpy are required.
+
 ### Installation
 
 1. Clone the repository
