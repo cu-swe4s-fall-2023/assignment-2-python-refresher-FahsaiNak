@@ -1,45 +1,59 @@
 # Import necessary modules and libraries
 import sys
-sys.path.insert(0, '../../src')
 import unittest
 import random
 import os
 import statistics
-import math
-import numpy as np
-import my_utils
+sys.path.insert(0, '../../src')
+import my_utils  # noqa
 
 
 # Create a test class for testing calculation functions
 class TestCalc(unittest.TestCase):
     def setUp(self):
         # Generate a random list for testing
-        self.lst_test = list(random.sample(range(-100, 100), random.randint(1, 20)))
-        # Calculate the expected mean, median, and standard deviation using numpy
-        self.direct_mean = round(np.mean(self.lst_test), 2)
-        self.direct_median = round(np.median(self.lst_test), 2)
-        self.direct_std = round(np.std(self.lst_test), 2)
+        self.lst_test = list(random.sample(range(-100, 100),
+                                           random.randint(1, 20)))
+        # Calculate the expected mean, median, and standard deviation
+        self.direct_mean = round(statistics.mean(self.lst_test), 2)
+        self.direct_median = round(statistics.median(self.lst_test), 2)
+        self.direct_std = round(statistics.pstdev(self.lst_test), 2)
 
     def test_calculate_mean(self):
         # Test the calculate_mean function
         mean = my_utils.calculate_mean(self.lst_test)
-        self.assertEqual(mean, self.direct_mean)  # Check if the calculated mean matches the expected mean
-        self.assertRaises(ZeroDivisionError, my_utils.calculate_mean, list())  # Test with an empty list
-        self.assertRaises(TypeError, my_utils.calculate_mean, None)  # Test with None as input
+        # Check if the calculated mean matches the expected mean
+        self.assertEqual(mean, self.direct_mean)
+        # Test with an empty list
+        self.assertRaises(ZeroDivisionError,
+                          my_utils.calculate_mean, list())
+        # Test with None as input
+        self.assertRaises(TypeError,
+                          my_utils.calculate_mean, None)
 
     def test_calculate_median(self):
         # Test the calculate_median function
         median = my_utils.calculate_median(self.lst_test)
-        self.assertEqual(median, self.direct_median)  # Check if the calculated median matches the expected median
-        self.assertRaises(IndexError, my_utils.calculate_median, list())  # Test with an empty list
-        self.assertRaises(TypeError, my_utils.calculate_median, None)  # Test with None as input
+        # Check if the calculated median matches the expected median
+        self.assertEqual(median, self.direct_median)
+        # Test with an empty list
+        self.assertRaises(IndexError,
+                          my_utils.calculate_median, list())
+        # Test with None as input
+        self.assertRaises(TypeError,
+                          my_utils.calculate_median, None)
 
     def test_calculate_std_dev(self):
         # Test the calculate_std_dev function
         std = my_utils.calculate_std_dev(self.lst_test)
-        self.assertEqual(std, self.direct_std)  # Check if the calculated std_dev matches the expected std_dev
-        self.assertRaises(ZeroDivisionError, my_utils.calculate_std_dev, list())  # Test with an empty list
-        self.assertRaises(TypeError, my_utils.calculate_median, None)  # Test with None as input
+        # Check if the calculated std_dev matches the expected std_dev
+        self.assertEqual(std, self.direct_std)
+        # Test with an empty list
+        self.assertRaises(ZeroDivisionError,
+                          my_utils.calculate_std_dev, list())
+        # Test with None as input
+        self.assertRaises(TypeError,
+                          my_utils.calculate_median, None)
 
 
 # Create a test class for testing get_column function
@@ -78,8 +92,10 @@ class TestGetCol(unittest.TestCase):
     def test_get_column(self):
         # Test the get_column function
         lst = my_utils.get_column(self.test_file_name, self.query_column,
-                                  self.query_value, result_column=self.result_column)
-        self.assertEqual(lst, self.lst_column)  # Check if the extracted column matches the expected result
+                                  self.query_value,
+                                  result_column=self.result_column)
+        # Check if the extracted column matches the expected result
+        self.assertEqual(lst, self.lst_column)
 
 
 if __name__ == '__main__':

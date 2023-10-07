@@ -1,7 +1,7 @@
 import sys
-sys.path.insert(0, 'src')
 import argparse
-import my_utils
+sys.path.insert(0, 'src')
+import my_utils  # noqa
 
 
 def get_args():
@@ -9,10 +9,12 @@ def get_args():
     Parse command-line arguments for the script.
 
     Returns:
-    - argparse.Namespace: An object containing the parsed command-line arguments.
+    - argparse.Namespace: An object containing
+    the parsed command-line arguments.
     """
     parser = argparse.ArgumentParser(
-        description='Print a number of fires in a specified country with/without operation',
+        description='Print a number of fires in a specified country\
+        with/without operation',
         prog='print_fires')
     parser.add_argument('--file_name', type=str,
                         help='Name of the file', required=True)
@@ -30,7 +32,9 @@ def get_args():
 
 def main():
     """
-    Main function of the script. Extracts fire data and prints the value from assigned operation of fires in a specified country.
+    Main function of the script.
+    Extracts fire data and prints the value
+    from assigned operation of fires in a specified country.
     """
     args = get_args()
     fires = my_utils.get_column(args.file_name, args.country_column,
@@ -49,7 +53,8 @@ def main():
         elif args.operation == "std":
             val = my_utils.calculate_std_dev(fires)
         else:
-            print("The assigned --operation is not matched; either mean, median or std is provided.")
+            print("The assigned --operation is not matched; either\
+            mean, median or std is provided.")
             sys.exit(1)
     print(args.country, "operated with", args.operation, val)
 
