@@ -22,7 +22,7 @@ A program that prints out the operated number of fire events occurred in any def
   pip install sys
   ```
 
-* To run unit/functional test: unittest, random, os and numpy are required.
+* To run unit/functional test: unittest, random, os and statistics are required.
 
 ### Installation
 
@@ -59,4 +59,4 @@ The file named run.sh includes some examples of running print_fires.py that work
 
 ### Summary of Changes
 
-Created a automated testing file (tests.yml) in the Github workflow that runs whenever a push or pull requests to the main branch
+Created a automated testing file (tests.yml) in the Github workflow that runs pycodestyle, unit and functional tests whenever a push or pull requests to the main branch.
