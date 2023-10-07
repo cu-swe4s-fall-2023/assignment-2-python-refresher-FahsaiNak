@@ -1,11 +1,12 @@
 # Import necessary modules and libraries
 import sys
+sys.path.insert(0, '../../src')
 import unittest
 import random
 import os
+import statistics
+import math
 import numpy as np
-
-sys.path.insert(0, '../../src')
 import my_utils
 
 

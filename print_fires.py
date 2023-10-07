@@ -1,7 +1,6 @@
-import argparse
 import sys
-
 sys.path.insert(0, 'src')
+import argparse
 import my_utils
 
 
