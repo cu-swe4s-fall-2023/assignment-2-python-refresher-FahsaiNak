@@ -25,30 +25,17 @@ def get_column(file_name, query_column, query_value, result_column=1):
     except PermissionError:
         print('Could not open', file_name)
         return None
-<<<<<<< HEAD
     result = list()  # Initialize an empty list to store the result.
     for ind, line in enumerate(f):
         array = line.rstrip().split(',')  # Split each line by ',' to get columns.
         query = array[query_column-1]  # Get the value in the query_column.
         if query == query_value:  # Check if the query value matches the specified value.
-=======
-    result = list()
-    for ind, line in enumerate(f):
-        array = line.rstrip().split(',')
-        query = array[query_column-1]
-        if query == query_value:
->>>>>>> 66fa3affc5b4999340176a558ce91902c3ad70c6
             try:
                 result.append(int(float(array[result_column-1])))
             except ValueError:
                 continue  # Skip if the value in result_column is not numeric.
-<<<<<<< HEAD
     f.close()  # Close the file.
     return result  # Return the list of extracted numeric values.
-=======
-    f.close()
-    return result
->>>>>>> 66fa3affc5b4999340176a558ce91902c3ad70c6
 
 
 def calculate_mean(lst):
