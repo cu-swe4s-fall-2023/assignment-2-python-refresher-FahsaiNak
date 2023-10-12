@@ -23,21 +23,21 @@ class TestCalc(unittest.TestCase):
         # Test the calculate_mean function
         mean = my_utils.calculate_mean(self.lst_test)
         self.assertEqual(mean, self.direct_mean)  # Check if the calculated mean matches the expected mean
-        self.assertRaises(ZeroDivisionError, my_utils.calculate_mean, list())  # Test with an empty list
+        self.assertEqual(None, my_utils.calculate_mean(list()))  # Test with an empty list
         self.assertRaises(TypeError, my_utils.calculate_mean, None)  # Test with None as input
 
     def test_calculate_median(self):
         # Test the calculate_median function
         median = my_utils.calculate_median(self.lst_test)
         self.assertEqual(median, self.direct_median)  # Check if the calculated median matches the expected median
-        self.assertRaises(IndexError, my_utils.calculate_median, list())  # Test with an empty list
+        self.assertEqual(None, my_utils.calculate_median(list()))  # Test with an empty list
         self.assertRaises(TypeError, my_utils.calculate_median, None)  # Test with None as input
 
     def test_calculate_std_dev(self):
         # Test the calculate_std_dev function
         std = my_utils.calculate_std_dev(self.lst_test)
         self.assertEqual(std, self.direct_std)  # Check if the calculated std_dev matches the expected std_dev
-        self.assertRaises(ZeroDivisionError, my_utils.calculate_std_dev, list())  # Test with an empty list
+        self.assertEqual(None, my_utils.calculate_std_dev(list()))  # Test with an empty list
         self.assertRaises(TypeError, my_utils.calculate_median, None)  # Test with None as input
 
 
