@@ -1,4 +1,4 @@
-# Assignment 4: Testing
+# Assignment 5: Continuous Integration
 
 ## About the Project
 
@@ -22,7 +22,7 @@ A program that prints out the operated number of fire events occurred in any def
   pip install sys
   ```
 
-* To run unit/functional test: unittest, random, os and numpy are required.
+* To run unit/functional test: unittest, random, os and statistics are required.
 
 ### Installation
 
@@ -59,8 +59,4 @@ The file named run.sh includes some examples of running print_fires.py that work
 
 ### Summary of Changes
 
-* Added new functions to find the mean, median, and standard deviation of a list of integers to my_utils.py and moved the file to src directory
-* Created unit tests (test_my_utils.py) in test/unit directory for all functions in my_utils.py including randomness and positive and negative cases
-* Edited print_fires.py by adding operation variable
-* Created a functional test (test_print_fires.sh) in test/functional directory to test print_fires.py, including exit codes and different operation cases
-* Created a small test data file of the full data sets and checked into to test/functional directory
+Created a automated testing file (tests.yml) in the Github workflow that runs pycodestyle, unit and functional tests whenever a push or pull requests to the main branch.

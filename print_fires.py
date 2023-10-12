@@ -1,8 +1,7 @@
-import argparse
 import sys
-
+import argparse
 sys.path.insert(0, 'src')
-import my_utils
+import my_utils  # noqa
 
 
 def get_args():
@@ -10,10 +9,12 @@ def get_args():
     Parse command-line arguments for the script.
 
     Returns:
-    - argparse.Namespace: An object containing the parsed command-line arguments.
+    - argparse.Namespace: An object containing
+    the parsed command-line arguments.
     """
     parser = argparse.ArgumentParser(
-        description='Print a number of fires in a specified country with/without operation',
+        description='Print a number of fires in a specified country\
+        with/without operation',
         prog='print_fires')
     parser.add_argument('--file_name', type=str,
                         help='Name of the file', required=True)
@@ -31,7 +32,9 @@ def get_args():
 
 def main():
     """
-    Main function of the script. Extracts fire data and prints the value from assigned operation of fires in a specified country.
+    Main function of the script.
+    Extracts fire data and prints the value
+    from assigned operation of fires in a specified country.
     """
     args = get_args()
     fires = my_utils.get_column(args.file_name, args.country_column,
