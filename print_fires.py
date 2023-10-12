@@ -41,8 +41,6 @@ def main():
                                 args.country, result_column=args.fires_column)
     if fires is None:
         sys.exit(1)
-    elif len(fires) == 0:
-        sys.exit(2)
     else:
         if args.operation is None:
             val = fires
@@ -53,10 +51,11 @@ def main():
         elif args.operation == "std":
             val = my_utils.calculate_std_dev(fires)
         else:
-            print("The assigned --operation is not matched; either\
-            mean, median or std is provided.")
-            sys.exit(1)
-    print(args.country, "operated with", args.operation, val)
+            print("The assigned --operation is not matched; either mean, median or std is provided.")
+            sys.exit(2)
+        if len(fires) == 0:
+            val = "No value in the specified column matched the condition"  
+    print(args.country, "operated with", args.operation, ":", val)
 
 
 if __name__ == '__main__':

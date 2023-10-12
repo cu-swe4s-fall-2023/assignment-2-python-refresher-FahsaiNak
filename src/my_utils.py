@@ -51,7 +51,10 @@ def calculate_mean(lst):
     - mean (float): The mean (average) value
     of the input list rounded to two decimal places.
     """
-    return round(sum(lst) / len(lst), 2)
+    try:
+        return round(sum(lst) / len(lst), 2)
+    except ZeroDivisionError:
+        return None
 
 
 def calculate_median(lst):
@@ -68,12 +71,15 @@ def calculate_median(lst):
     """
     n = len(lst)
     lst.sort()
-    if n % 2 == 0:
-        median1 = lst[n//2]
-        median2 = lst[n//2 - 1]
-        median = (median1 + median2) / 2
-    else:
-        median = lst[n//2]
+    try:        
+        if n % 2 == 0:
+            median1 = lst[n//2]
+            median2 = lst[n//2 - 1]
+            median = (median1 + median2) / 2
+        else:
+            median = lst[n//2]
+    except IndexError:
+        return None
     return round(median, 2)
 
 
@@ -89,7 +95,10 @@ def calculate_std_dev(lst):
     - std_dev (float): The standard deviation of
     the input list rounded to two decimal places.
     """
-    mean = calculate_mean(lst)
-    variance = sum((xi - mean) ** 2 for xi in lst) / len(lst)
-    std_dev = variance ** 0.5
+    try:
+        mean = sum(lst) / len(lst)  # Calculate the mean.
+    except ZeroDivisionError:
+        return None
+    variance = sum((xi - mean) ** 2 for xi in lst) / len(lst)  # Calculate the variance.
+    std_dev = variance ** 0.5  # Calculate the standard deviation.
     return round(std_dev, 2)
