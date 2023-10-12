@@ -1,6 +1,7 @@
 def get_column(file_name, query_column, query_value, result_column=1):
     """
-    Extracts numeric values from a specified column in a CSV file based on a query in another column.
+    Extracts numeric values from a specified column
+    in a CSV file based on a query in another column.
 
     Parameters:
     - file_name (str): The name of the CSV file to read.
@@ -21,19 +22,15 @@ def get_column(file_name, query_column, query_value, result_column=1):
     except PermissionError:
         print('Could not open', file_name)
         return None
-    
     result = list()  # Initialize an empty list to store the result.
-    
     for ind, line in enumerate(f):
         array = line.rstrip().split(',')  # Split each line by ',' to get columns.
         query = array[query_column-1]  # Get the value in the query_column.
-        
         if query == query_value:  # Check if the query value matches the specified value.
             try:
                 result.append(int(float(array[result_column-1])))  # Extract numeric data from result_column.
             except ValueError:
                 continue  # Skip if the value in result_column is not numeric.
-    
     f.close()  # Close the file.
     return result  # Return the list of extracted numeric values.
 
@@ -66,7 +63,7 @@ def calculate_median(lst):
     """
     n = len(lst)
     lst.sort()
-    try:        
+    try:
         if n % 2 == 0:
             median1 = lst[n//2]
             median2 = lst[n//2 - 1]
