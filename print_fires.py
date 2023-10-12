@@ -9,19 +9,11 @@ def get_args():
     Parse command-line arguments for the script.
 
     Returns:
-<<<<<<< HEAD
-    - argparse.Namespace:
-    An object containing the parsed command-line arguments.
-    """
-    parser = argparse.ArgumentParser(
-        description='Print a number of fires in a specified country \
-=======
     - argparse.Namespace: An object containing
     the parsed command-line arguments.
     """
     parser = argparse.ArgumentParser(
         description='Print a number of fires in a specified country\
->>>>>>> 66fa3affc5b4999340176a558ce91902c3ad70c6
         with/without operation',
         prog='print_fires')
     parser.add_argument('--file_name', type=str,
@@ -59,7 +51,7 @@ def main():
         elif args.operation == "std":
             val = my_utils.calculate_std_dev(fires)
         else:
-            print("The assigned --operation is not matched; \
+            print("The assigned --operation is not matched;\
             either mean, median or std is provided.")
             sys.exit(2)
         if len(fires) == 0:

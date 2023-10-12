@@ -14,17 +14,10 @@ class TestCalc(unittest.TestCase):
         # Generate a random list for testing
         self.lst_test = list(random.sample(range(-100, 100),
                                            random.randint(1, 20)))
-<<<<<<< HEAD
-        # Calculate the expected mean, median, and std using numpy
-        self.direct_mean = round(np.mean(self.lst_test), 2)
-        self.direct_median = round(np.median(self.lst_test), 2)
-        self.direct_std = round(np.std(self.lst_test), 2)
-=======
         # Calculate the expected mean, median, and standard deviation
         self.direct_mean = round(statistics.mean(self.lst_test), 2)
         self.direct_median = round(statistics.median(self.lst_test), 2)
         self.direct_std = round(statistics.pstdev(self.lst_test), 2)
->>>>>>> 66fa3affc5b4999340176a558ce91902c3ad70c6
 
     def test_calculate_mean(self):
         # Test the calculate_mean function
@@ -86,10 +79,7 @@ class TestGetCol(unittest.TestCase):
         lst = my_utils.get_column(self.test_file_name, self.query_column,
                                   self.query_value,
                                   result_column=self.result_column)
-<<<<<<< HEAD
-=======
         # Check if the extracted column matches the expected result
->>>>>>> 66fa3affc5b4999340176a558ce91902c3ad70c6
         self.assertEqual(lst, self.lst_column)
 
 
