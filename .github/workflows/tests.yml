@@ -41,3 +41,4 @@ jobs:
           - run: |
              cd test/functional
              bash test_print_fires.sh
+             bash test_plot_hist.sh

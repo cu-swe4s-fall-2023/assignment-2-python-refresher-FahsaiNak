@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 sys.path.insert(0, 'src')
 import my_utils  # noqa
 
+
 def get_args():
     """
     Parse command-line arguments for the script.
@@ -25,11 +26,14 @@ def get_args():
     parser.add_argument('--title', type=str,
                         help='Title of the histrogram', required=True)
     parser.add_argument('--x', type=str,
-                        help='Name of the X-axis in the histogram', required=True)
+                        help='Name of the X-axis in the histogram',
+                        required=True)
     parser.add_argument('--y', type=str,
-                        help='Name of the y-axis in the histogram', required=True)
+                        help='Name of the y-axis in the histogram',
+                        required=True)
     args = parser.parse_args()
     return args
+
 
 def main():
     args = get_args()
@@ -40,13 +44,16 @@ def main():
     elif D2 is None:
         sys.exit(1)
     else:
-        plt.hist(D1, label=args.data_file_1.split('.')[0], alpha=.7, color='red')
-        plt.hist(D2, label=args.data_file_2.split('.')[0], alpha=.7, color='yellow')
+        plt.hist(D1, label=args.data_file_1.split('.')[0],
+        alpha=.7, color='red')
+        plt.hist(D2, label=args.data_file_2.split('.')[0],
+        alpha=.7, color='yellow')
         plt.legend()
         plt.xlabel(args.x)
         plt.ylabel(args.y)
         plt.title(args.title)
         plt.savefig(args.out_file, bbox_inches='tight')
+
 
 if __name__ == '__main__':
     main()

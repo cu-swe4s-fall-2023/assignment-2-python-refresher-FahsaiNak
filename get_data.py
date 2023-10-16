@@ -22,7 +22,8 @@ def get_args():
     parser.add_argument('--out_file', type=str,
                         help='Name of the output file', required=True)
     parser.add_argument('--country_column', type=int,
-                        help='The column number of the country name', default=1)
+                        help='The column number of the country name',
+                        default=1)
     parser.add_argument('--fire_column', type=int,
                         help='The column number of the country name')
     args = parser.parse_args()
