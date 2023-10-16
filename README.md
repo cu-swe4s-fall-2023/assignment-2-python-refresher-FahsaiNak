@@ -33,7 +33,7 @@ A program that prints out the operated number of fire events occurred in any def
 
 2. Get a data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7) and place in the root directory of the repository
 
-3. Excute print_fires.py to prints out a number of fire events in a specified country. The program requires parameters as following:
+3. Execute print_fires.py to print out a number of fire events in a specified country. The program requires parameters as following:
    - The specified CSV file name (--file_name)
    - The column number of the fire event (--fires_column)
    - The name of the country (--country)
