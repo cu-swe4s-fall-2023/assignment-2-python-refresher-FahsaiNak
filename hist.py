@@ -1,6 +1,5 @@
 import sys
 import argparse
-import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 sys.path.insert(0, 'src')
