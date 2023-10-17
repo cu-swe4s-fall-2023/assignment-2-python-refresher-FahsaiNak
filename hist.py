@@ -1,7 +1,5 @@
 import sys
 import argparse
-import subprocess
-subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'matplotlib'])
 import matplotlib
 import matplotlib.pyplot as plt
 sys.path.insert(0, 'src')
