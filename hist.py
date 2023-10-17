@@ -45,9 +45,9 @@ def main():
         sys.exit(1)
     else:
         plt.hist(D1, label=args.data_file_1.split('.')[0],
-        alpha=.7, color='red')
+                 alpha=.7, color='red')
         plt.hist(D2, label=args.data_file_2.split('.')[0],
-        alpha=.7, color='yellow')
+                 alpha=.7, color='yellow')
         plt.legend()
         plt.xlabel(args.x)
         plt.ylabel(args.y)

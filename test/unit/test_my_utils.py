@@ -86,7 +86,7 @@ class TestGetCol(unittest.TestCase):
                                   self.query_value,
                                   result_column=self.result_column)
         self.assertEqual(lst, self.lst_column)
-    
+
     def test_getListFromFile(self):
         # Test the getListFromFile function
         lst = my_utils.getListFromFile(self.test_file_name_2)
