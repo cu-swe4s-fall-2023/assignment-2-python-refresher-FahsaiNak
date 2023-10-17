@@ -1,7 +1,8 @@
 COUNTRIES = ["United States of America", "China"]
+FRIES = [4, 5, 6]
 
 rule all:
-  input: 'hist.png'
+  input: expand('hist_{fire}.png', fire=FRIES)
 
 rule load_data:
     output:
@@ -13,15 +14,17 @@ rule get_data:
     input:
         'Agrofood_co2_emission.csv'
     output:
-        expand('{country}.txt', country=COUNTRIES)
+        expand('{country}.{fire}.txt', country=COUNTRIES, fire=FRIES)
     run:
         for country in COUNTRIES:
-            shell(f'python get_data.py --file_name "{{input}}" --country "{country}" --fire_column 5 --out_file "{country}".txt')
+            for fire in FRIES:
+                shell(f'python get_data.py --file_name "{{input}}" --country "{country}" --fire_column {fire} --out_file "{country}".{fire}.txt')
 
 rule plot_hist:
     input:
-        expand('{country}.txt', country=COUNTRIES)
+        expand('{country}.{fire}.txt', country=COUNTRIES, fire=FRIES)
     output:
-        'hist.png'
-    shell:
-        'python hist.py --data_file_1 "{input[0]}" --data_file_2 "{input[1]}" --out_file {output} --title "CO2 emission from Crop Residues in China and USA" --x "CO2 emission" --y "Counts"'
+        expand('hist_{fire}.png', fire=FRIES)
+    run:
+        for fire in FRIES:
+            shell(f'python hist.py --data_file_1 "{COUNTRIES[0]}.{fire}.txt" --data_file_2 "{COUNTRIES[1]}.{fire}.txt" --out_file "hist_{fire}.png" --title "CO2 emission from fire column {fire}" --x "CO2 emission" --y "Counts"')
