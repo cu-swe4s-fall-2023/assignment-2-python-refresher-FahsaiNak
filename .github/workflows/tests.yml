@@ -30,7 +30,7 @@ jobs:
              cd test/unit
              python -m unittest test_my_utils
 
-    run_functional_tests:
+    run_functional_print_fires:
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v2
@@ -41,4 +41,16 @@ jobs:
           - run: |
              cd test/functional
              bash test_print_fires.sh
+
+    run_functional_plot_hist:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v2
+          - uses: conda-incubator/setup-miniconda@v2
+            with:
+                activate-environment: swe4s
+                environment-file: env.yml
+          - run: |
+             python -m pip install -U matplotlib
+             cd test/functional
              bash test_plot_hist.sh
