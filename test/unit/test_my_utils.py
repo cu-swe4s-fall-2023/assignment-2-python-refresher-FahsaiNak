@@ -46,6 +46,7 @@ class TestGetCol(unittest.TestCase):
     def setUp(self):
         # Generate a test file with random data for get_column testing
         self.test_file_name = 'setup_test_file.txt'
+        self.test_file_name_2 = 'setup_test_file_2.txt'
         num_col = random.randint(1, 100)
         self.query_column = random.randint(1, num_col)
         self.query_value = str(random.randint(-10, 10))
@@ -69,17 +70,26 @@ class TestGetCol(unittest.TestCase):
                 else:
                     f.write(',')
         f.close()
+        k = open(self.test_file_name_2, 'w')
+        for val in self.lst_column:
+            k.write(str(val)+'\n')
+        k.close()
 
     def tearDown(self):
         # Remove the test file after testing
         os.remove(self.test_file_name)
+        os.remove(self.test_file_name_2)
 
     def test_get_column(self):
         # Test the get_column function
         lst = my_utils.get_column(self.test_file_name, self.query_column,
                                   self.query_value,
                                   result_column=self.result_column)
-        # Check if the extracted column matches the expected result
+        self.assertEqual(lst, self.lst_column)
+
+    def test_getListFromFile(self):
+        # Test the getListFromFile function
+        lst = my_utils.getListFromFile(self.test_file_name_2)
         self.assertEqual(lst, self.lst_column)
 
 
