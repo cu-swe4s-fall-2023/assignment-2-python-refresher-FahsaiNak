@@ -1,7 +1,8 @@
 import sys
 import argparse
-import matplotlib
-import matplotlib.pyplot as plt
+!pip install matplotlib
+import matplotlib  # noqa
+import matplotlib.pyplot as plt  # noqa
 sys.path.insert(0, 'src')
 import my_utils  # noqa
 
