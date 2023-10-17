@@ -2,7 +2,32 @@
 
 ## About the Project
 
-A program that prints out the operated number of fire events occurred in any defined country from 1990-2020.
+A program retrieves information of CO2 emission from fire events occurred between 1990 to 2020 in several countries around the world.
+
+### Introduction
+
+In this setting, CO2 emission data reported in China and the United States of America was collected and compared based on the fire sources.
+
+### Results
+
+The CO2 emission record from *Forest Fires* (Figure 1) shows that this incident frequently occurred in the United States of America more than in China during 1990-2020. Meanwhile, a fire event with *Crop Residues* is more common in China than in America (Figure 2). It is interesting to note that *Rice Cultivation* produce a significant amount of CO2 in China more than in the United States almost ten times (Figure 3), and even more than the other two sources mentioned before.
+
+* **Figure 1**: A histogram shows CO2 emission from Forest Fires in China and the United States of America.
+   ![Forest fires](hist_4.png)
+
+* **Figure 2**: A histogram shows CO2 emission from Crop Residues in China and the United States of America.
+   ![Crop Residues](hist_5.png)
+
+* **Figure 3**: A histogram shows CO2 emission from Rice Cultivation in China and the United States of America.
+   ![Rice Cultivation](hist_6.png)
+
+### Methods
+
+1. The CO2 emission table was downloaded from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7).
+
+2. CO2 emission data from Forest Fires, Crop Residues and Rice Cultivation in China and the United States of Americ awas extracted and stored in text files corresponding to the values in each coloumn.
+
+3. All stored CO2 emission data files were plotted in a histogram to compare the certain fire events in China and the United States of America.
 
 ## Getting started
 
@@ -12,18 +37,6 @@ A program that prints out the operated number of fire events occurred in any def
 
 * Install python 3.x
 
-* Install argparse
-  ```sh
-  pip install argparse
-  ```
-
-* Install sys
-  ```sh
-  pip install sys
-  ```
-
-* To run unit/functional test: unittest, random, os and statistics are required.
-
 ### Installation
 
 1. Clone the repository
@@ -31,32 +44,14 @@ A program that prints out the operated number of fire events occurred in any def
    git clone https://github.com/cu-swe4s-fall-2023/assignment-2-python-refresher-FahsaiNak.git
    ```
 
-2. Get a data file named "Agrofood_co2_emission.csv" from the classroom google drive [Link](https://drive.google.com/drive/u/3/folders/15dnNnOEjDZDvwzM-_tGGtWjTbNL669i7) and place in the root directory of the repository
-
-3. Execute print_fires.py to print out a number of fire events in a specified country. The program requires parameters as following:
-   - The specified CSV file name (--file_name)
-   - The column number of the fire event (--fires_column)
-   - The name of the country (--country)
-   - (Optional) The column number of the country (--country_column)
-   - (Optional) The operation to perform: mean, median, std (--operation)
-   
-   Running command example:
+2. Create environment from env.yml
    ```sh
-   python print_fires.py --file_name Agrofood_co2_emission.csv --country "United States of America" --fires_column 4 --operation mean
-   ```
-   Output example:
-   ```console
-   United States of America operated with mean 1928.23
+   conda env create -f env.yml
    ```
 
 ### Usage Example
-
-The file named run.sh includes some examples of running print_fires.py that works and gives errors:
-
+The command runs Snakefile workflow to generate a set of CO2 emission data and histograms from various sources in China and United States of America. All information is from Agrofood_co2_emission.csv
    ```sh
-   ./run.sh
+   snakemake -c1
    ```
-
-### Summary of Changes
-
-Created a automated testing file (tests.yml) in the Github workflow that runs pycodestyle, unit and functional tests whenever a push or pull requests to the main branch.
+   
