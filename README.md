@@ -1,4 +1,4 @@
-# Assignment 5: Continuous Integration
+# Assignment 6: Workflows
 
 ## About the Project
 
@@ -54,4 +54,3 @@ The command runs Snakefile workflow to generate a set of CO2 emission data and h
    ```sh
    snakemake -c1
    ```
-   
