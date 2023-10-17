@@ -54,6 +54,11 @@ The CO2 emission record from *Forest Fires* (Figure 1) shows that this incident 
    conda install -c conda-forge -c bioconda snakemake graphviz
    ```
 
+4. Install [Matplotlib](https://pypi.org/project/matplotlib/)
+   ```sh
+   python -m pip install -U matplotlib
+   ```
+
 ### Usage Example
 The command runs Snakefile workflow to generate a set of CO2 emission data and histograms from various sources in China and United States of America. All information is from Agrofood_co2_emission.csv
    ```sh
