@@ -41,6 +41,7 @@ def get_args():
     args = parser.parse_args()
     return args
 
+
 def main():
     args = get_args()
     D1 = my_utils.get_column(args.file_name, args.country_column,

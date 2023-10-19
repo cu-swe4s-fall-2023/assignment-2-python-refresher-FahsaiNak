@@ -102,23 +102,3 @@ def calculate_std_dev(lst):
     variance = sum((xi - mean) ** 2 for xi in lst) / len(lst)
     std_dev = variance ** 0.5
     return round(std_dev, 2)
-
-
-def getListFromFile(file_name):
-    try:
-        f = open(file_name, 'r')
-    except FileNotFoundError:
-        print('Could not find', file_name)
-        return None
-    except PermissionError:
-        print('Could not open', file_name)
-        return None
-    result = list()
-    for line in f:
-        try:
-            val = int(float(line.rstrip()))
-        except ValueError:
-            val = 0
-        result.append(val)
-    f.close()
-    return result
