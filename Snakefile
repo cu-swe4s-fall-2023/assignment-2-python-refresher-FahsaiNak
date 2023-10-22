@@ -10,16 +10,6 @@ rule load_data:
     shell:
         'wget -O {output} "https://docs.google.com/uc?export=download&id=1Wytf3ryf9EtOwaloms8HEzLG0yjtRqxr"'
 
-rule get_data:
-    input:
-        'Agrofood_co2_emission.csv'
-    output:
-        expand('{country}.{fire}.txt', country=COUNTRIES, fire=FRIES)
-    run:
-        for country in COUNTRIES:
-            for fire in FRIES:
-                shell(f'python get_data.py --file_name "{{input}}" --country "{country}" --fire_column {fire} --out_file "{country}".{fire}.txt')
-
 rule plot_hist:
     input:
         'Agrofood_co2_emission.csv'
