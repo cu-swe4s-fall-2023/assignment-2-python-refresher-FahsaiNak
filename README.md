@@ -64,3 +64,4 @@ The command runs Snakefile workflow to download CO2 emission data, retrieve data
    ```sh
    snakemake -c1
    ```
+In order to create new analysis, users can modify the first two columns in the Snakefile for their intersted country names and fire column numbers.
